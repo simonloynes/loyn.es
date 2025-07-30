@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A simple bird feeder inspired by some design stuff I cant remember.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/tailwind-output.css">
+  </head>
+  <body>
+  <div class="flex flex-col max-w-[960px] mx-auto min-h-screen">
+    <header class="h-[10rem] flex flex-row justify-between items-center bg-[url('/img/loynes-text.svg')] bg-local bg-size-[960px] bg-position-[0%125%] bg-no-repeat mb-20 relative">
+      <h1 class="hidden">loyn.es</h1>
+      <nav class="absolute bottom-5 right-5">
+        <ul class="flex flex-row gap-5">
+          <li>
+            <a href="/" >Home</a>
+          </li>
+          <li>
+            <a href="/about" >About</a>
+          </li>
+          <li>
+            <a href="/posts" >Posts</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="flex-grow">
+      <article class="post-article max-w-[960px] mx-auto grid grid-cols-12 gap-4">
+  <h1 class="text-4xl/normal col-span-10">A simple bird feeder inspired by some design stuff I cant remember.</h1>
+  <p class="p1 col-span-10">Feed the birds, tuppence a bag.</p>
+  <div class="col-start-1 col-end-8">
+  <p>This is some place holder text</p>
+
+  </div>
+  <div class="article-meta col-start-9 col-end-12">
+    <span>by <a href="./about/post.simon-loynes">Simon</a> · 25 Jun 2025</span>
+    <span><a href="/posts/tagged/woodwork">woodwork</a>, <a href="/posts/tagged/making">making</a></span>
+  </div>
+</article>
+    </main>
+      <footer class="h-[12rem] bg-[url('/img/loynes-text.svg')] bg-local bg-size-[960px] bg-position-[0%_-100%] bg-no-repeat">
+      </footer>
+    </div>
+  </body>
+</html>

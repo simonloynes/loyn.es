@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NPXify your node package.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/tailwind-output.css">
+  </head>
+  <body>
+  <div class="flex flex-col max-w-[960px] mx-auto min-h-screen">
+    <header class="h-[10rem] flex flex-row justify-between items-center bg-[url('/img/loynes-text.svg')] bg-local bg-size-[960px] bg-position-[0%125%] bg-no-repeat mb-20 relative">
+      <h1 class="hidden">loyn.es</h1>
+      <nav class="absolute bottom-5 right-5">
+        <ul class="flex flex-row gap-5">
+          <li>
+            <a href="/" >Home</a>
+          </li>
+          <li>
+            <a href="/about" >About</a>
+          </li>
+          <li>
+            <a href="/posts" >Posts</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main class="flex-grow">
+      <article class="post-article max-w-[960px] mx-auto grid grid-cols-12 gap-4">
+  <h1 class="text-4xl/normal col-span-10">NPXify your node package.</h1>
+  <p class="p1 col-span-10">NPX, that magical command that just makes things work. Here I explore the process for making a package work with NPX.</p>
+  <div class="col-start-1 col-end-8">
+  <p>As I guess most node developers have, I've found myself using <a href="https://docs.npmjs.com/cli/v7/commands/npx">npx</a> on the odd occasion. I'd not given much thought to how it actually works, after all it's a quick means to an end in most cases.</p>
+<p>I recently had time to play with <code>npx</code> when updating an internal development package for use in a CI workflow. The modification to the package allows it's use as an ad-hoc stand-alone service. It was a  simple process, read on to find out how it's done.</p>
+<h2>Pre-requisites.</h2>
+<p>To keep this simple I'll assume the following,</p>
+<ul>
+<li>you're already setup with a GitHub repository</li>
+<li>your repo can publish packages somewhere like <a href="https://www.npmjs.com/">NPM</a> or <a href="https://github.com/features/packages">GitHub Packages.</a></li>
+</ul>
+<p>The <a href="https://github.com/monkeyarmada/env_vars">demo repo</a> is set-up in this fashion.</p>
+<h2>How it went.</h2>
+<p>To get this working was simple, it required two changes to the repo.</p>
+<ol>
+<li>A small update to the repo's <code>package.json</code> file</li>
+<li>The creation of a stub script for <code>npx</code> to execute.</li>
+</ol>
+<p>Take a look at the following steps, in-situ, in this <a href="https://github.com/monkeyarmada/env_vars">demo repo</a>.</p>
+<h3>Update <code>package.json</code>.</h3>
+<p>This change tells <code>npx</code> what file to execute. Add a <code>bin</code> property to the file with a value that points to your script entry point. In this case it happens to be the file <code>vars.js</code> in the repo's <code>dist</code> directory.</p>
+<pre><code>  {
+    +  &quot;bin&quot;: &quot;./dist/vars.js&quot;,
+  }
+</code></pre>
+<h3>Create <code>vars.ts</code>, the stub script.</h3>
+<p>This script compiles to the location added to the <code>package.json</code> file. For the demo it's nothing ground-breaking.</p>
+<pre><code>  #!/usr/bin/env node
+  import { logEnv } from &quot;./index&quot;;
+  logEnv();
+</code></pre>
+<p>The key to this file is the inclusion of the shebang in the first line. This tells the operating system to run 'env' which will then run 'node'.</p>
+<h2>Tahdah!</h2>
+<p>That's it, deploy the package and execute your package with abandon. In this case with the command <code>nxp @monkeyarmada/env_vars</code></p>
+
+  </div>
+  <div class="article-meta col-start-9 col-end-12">
+    <span>by <a href="./about/post.simon-loynes">Simon</a> · 11 Jun 2025</span>
+    <span><a href="/posts/tagged/node">node</a>, <a href="/posts/tagged/development">development</a>, <a href="/posts/tagged/dev-tools">dev-tools</a></span>
+  </div>
+</article>
+    </main>
+      <footer class="h-[12rem] bg-[url('/img/loynes-text.svg')] bg-local bg-size-[960px] bg-position-[0%_-100%] bg-no-repeat">
+      </footer>
+    </div>
+  </body>
+</html>
