@@ -13,7 +13,7 @@
   <div class="flex flex-col max-w-[960px] mx-auto min-h-screen">
     <header class="h-[10rem] flex flex-row justify-between items-center bg-[url('/img/loynes-text.svg')] bg-local bg-size-[960px] bg-position-[0%125%] bg-no-repeat mb-20 relative">
       <h1 class="hidden">loyn.es</h1>
-      <nav class="absolute bottom-5 right-5">
+      <nav class="absolute bottom-5 left-5 sm:left-auto sm:right-5">
         <ul class="flex flex-row gap-5">
           <li>
             <a href="/" >Home</a>
@@ -29,9 +29,9 @@
     </header>
     <main class="flex-grow">
       
-<h1 class="text-4xl/normal font-bold  mb-5" >All posts</h1>
-<div class="grid grid-cols-12 gap-4">
-  <div class="col-start-1 col-end-8">
+<h1 class="text-4xl/normal font-bold  mb-5 pl-5 pr-5 lg:pl-0 lg:pr-0" >All posts</h1>
+<div class="grid grid-cols-12 gap-4 pl-5 pr-5 lg:pl-0 lg:pr-0">
+  <div class="col-start-1 col-end-6 sm:col-end-8 ">
   
       <article class="text-left mb-8">
       <a href="/about/" class="block"><h2 class="text-xl/normal font-bold mb-2"></h2></a>
@@ -48,7 +48,7 @@
     </article>
   
   </div>
-  <aside class="col-start-9 col-end-12 border-l border-gray-200 pl-8">
+  <aside class="col-start-7 sm:col-start-9 col-end-12 border-l border-gray-200 pl-8">
     <ul>
     
       <li class="list-none flex border-b border-dotted border-gray-200 pb-2 pt-2">
