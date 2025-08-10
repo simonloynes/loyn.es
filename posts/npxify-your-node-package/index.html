@@ -29,9 +29,11 @@
     </header>
     <main class="flex-grow">
       <article class="post-article max-w-[960px] mx-auto grid grid-cols-12 gap-4 mb-5 pl-5 pr-5 lg:pl-0 lg:pr-0">
-  <h1 class="text-4xl/normal col-span-10">NPXify your node package.</h1>
-  <p class="p1 col-span-10">NPX, that magical command that just makes things work. Here I explore the process for making a package work with NPX.</p>
-  <div class="col-start-1 col-end-8">
+  <header class="col-span-9">
+    <h1 class="text-4xl/normal">NPXify your node package.</h1>
+  </header>
+  <div class="col-start-1 col-end-10 border-r border-gray-200 pr-5">
+  <p class="p1">NPX, that magical command that just makes things work. Here I explore the process for making a package work with NPX.</p>
   <p>As I guess most node developers have, I've found myself using <a href="https://docs.npmjs.com/cli/v7/commands/npx">npx</a> on the odd occasion. I'd not given much thought to how it actually works, after all it's a quick means to an end in most cases.</p>
 <p>I recently had time to play with <code>npx</code> when updating an internal development package for use in a CI workflow. The modification to the package allows it's use as an ad-hoc stand-alone service. It was a  simple process, read on to find out how it's done.</p>
 <h2>Pre-requisites.</h2>
@@ -65,10 +67,10 @@
 <p>That's it, deploy the package and execute your package with abandon. In this case with the command <code>nxp @monkeyarmada/env_vars</code></p>
 
   </div>
-  <div class="article-meta col-start-9 col-end-12">
-    <span>by <a href="./about/post.simon-loynes">Simon</a> · 11 Jun 2025</span>
-    <span><a href="/posts/tagged/node">node</a>, <a href="/posts/tagged/development">development</a>, <a href="/posts/tagged/dev-tools">dev-tools</a></span>
-  </div>
+   <div class="article-meta col-start-10 col-end-13 pl-2">
+      <span>by <a href="./about/post.simon-loynes">Simon</a> · 11 Jun 2025</span>
+      <span><a href="/posts/tagged/node">node</a>, <a href="/posts/tagged/development">development</a>, <a href="/posts/tagged/dev-tools">dev-tools</a></span>
+    </div>
 </article>
     </main>
       <footer class="h-[12rem] bg-[url('/img/loynes-text.svg')] bg-local bg-size-[960px] bg-position-[0%_-100%] bg-no-repeat">

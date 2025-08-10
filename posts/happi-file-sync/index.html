@@ -29,16 +29,110 @@
     </header>
     <main class="flex-grow">
       <article class="post-article max-w-[960px] mx-auto grid grid-cols-12 gap-4 mb-5 pl-5 pr-5 lg:pl-0 lg:pr-0">
-  <h1 class="text-4xl/normal col-span-10">Using Github actions to keep documentation up to date and available.</h1>
-  <p class="p1 col-span-10">this is a placeholder</p>
-  <div class="col-start-1 col-end-8">
-  <p>This is some place holder text</p>
+  <header class="col-span-9">
+    <h1 class="text-4xl/normal">Using Github actions to keep documentation up to date and available.</h1>
+  </header>
+  <div class="col-start-1 col-end-10 border-r border-gray-200 pr-5">
+  <p class="p1">Learn how to automatically sync documentation and configuration files across multiple GitHub repositories using happi-file-sync-gh, a GitHub Action that makes file synchronization effortless.</p>
+  <p>Have you ever maintained multiple GitHub repositories that share common documentation or configuration files? Keeping these files in sync can be a tedious and error-prone task. What if there was a way to automatically update these files across repositories whenever changes are made?</p>
+<p>Well there is probably loads of solutions out there, happy-file-sync-gh is mine.</p>
+<h2>The Problem: Documentation Drift</h2>
+<p>One of the most common challenges in maintaining multiple repositories is keeping shared documentation and configuration files synchronized. Whether it's:</p>
+<ul>
+<li>README files that need to be consistent across related projects</li>
+<li>Shared configuration files that define common settings</li>
+<li>Documentation tools that source content from multiple locations</li>
+<li>License files that need to be kept up to date</li>
+</ul>
+<p>Manual synchronization is time-consuming and often leads to documentation drift, where files become inconsistent over time. It's also prone to developers &quot;forgetting&quot; to push the information to where it needs to be. If we can make the process hands off, that it's forgettable becomes less of a problem.</p>
+<h2>The Solution: Automated File Synchronization</h2>
+<p>happi-file-sync-gh solves this problem by automatically creating pull requests to sync files between repositories whenever changes are detected. Here's how it works:</p>
+<ol>
+<li>You specify which files to monitor and where they should be synced</li>
+<li>When changes are made to these files, the action automatically:
+<ul>
+<li>Creates a new branch in the target repository</li>
+<li>Copies the updated file(s)</li>
+<li>Creates a pull request with the changes</li>
+</ul>
+</li>
+</ol>
+<h2>Getting Started</h2>
+<p>Setting up happi-file-sync-gh is straightforward. Here's a basic example:</p>
+<ol>
+<li>Create a workflow file in your repository:</li>
+</ol>
+<pre><code class="language-yaml">name: Sync Files
+on:
+  pull_request_target:
+    types: [closed]
+    branches:
+      - main
+    paths:
+      - &quot;README.md&quot;
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: happi-file-sync-gh@v1
+        with:
+          github-token: $
+          file-mappings: |
+            {
+              &quot;readme&quot;: {
+                &quot;sourcePath&quot;: &quot;.&quot;,
+                &quot;sourceFilename&quot;: &quot;README.md&quot;,
+                &quot;destRepo&quot;: &quot;other-org/other-repo&quot;,
+                &quot;destPath&quot;: &quot;.&quot;,
+                &quot;destFilename&quot;: &quot;README.md&quot;
+              }
+            }
+</code></pre>
+<h2>Advanced Features</h2>
+<h3>Smart Branch Handling</h3>
+<p>The action provides three strategies for handling existing branches:</p>
+<ol>
+<li><strong>Update Mode</strong> (default): Updates existing pull requests, keeping everything in one place</li>
+<li><strong>Create New</strong>: Generates unique branches with timestamps for separate pull requests</li>
+<li><strong>Fail Fast</strong>: Stops if a branch exists, giving you manual control</li>
+</ol>
+<h3>Multiple File Mappings</h3>
+<p>You can sync multiple files to different repositories in a single configuration:</p>
+<pre><code class="language-yaml">file-mappings: |
+  {
+    &quot;docs&quot;: {
+      &quot;sourcePath&quot;: &quot;docs&quot;,
+      &quot;sourceFilename&quot;: &quot;API.md&quot;,
+      &quot;destRepo&quot;: &quot;api-docs-repo&quot;,
+      &quot;destPath&quot;: &quot;reference&quot;,
+      &quot;destFilename&quot;: &quot;latest.md&quot;
+    },
+    &quot;config&quot;: {
+      &quot;sourcePath&quot;: &quot;config&quot;,
+      &quot;sourceFilename&quot;: &quot;eslint.json&quot;,
+      &quot;destRepo&quot;: &quot;shared-configs&quot;,
+      &quot;destPath&quot;: &quot;eslint&quot;,
+      &quot;destFilename&quot;: &quot;base.json&quot;
+    }
+  }
+</code></pre>
+<h2>Roadmap</h2>
+<p>The project is <s>actively being developed</s> nudged along when my team complain enough. That being said there are several planned improvements that have been identified:</p>
+<ul>
+<li>Clean up error outputs for better debugging</li>
+<li>Improve logging with operation summaries</li>
+<li>Support syncing entire directories</li>
+<li>Improve error handling and exit codes</li>
+</ul>
 
   </div>
-  <div class="article-meta col-start-9 col-end-12">
-    <span>by <a href="./about/post.simon-loynes">Simon</a> · 11 Jun 2025</span>
-    <span><a href="/posts/tagged/node">node</a>, <a href="/posts/tagged/github">github</a>, <a href="/posts/tagged/dev-tools">dev-tools</a></span>
-  </div>
+   <div class="article-meta col-start-10 col-end-13 pl-2">
+      <span>by <a href="./about/post.simon-loynes">Simon</a> · 7 Aug 2025</span>
+      <span><a href="/posts/tagged/github">github</a>, <a href="/posts/tagged/dev-tools">dev-tools</a></span>
+    </div>
 </article>
     </main>
       <footer class="h-[12rem] bg-[url('/img/loynes-text.svg')] bg-local bg-size-[960px] bg-position-[0%_-100%] bg-no-repeat">
