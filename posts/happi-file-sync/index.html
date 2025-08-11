@@ -33,20 +33,20 @@
     <h1 class="text-4xl/normal">Using Github actions to keep documentation up to date and available.</h1>
   </header>
   <div class="col-start-1 col-end-10 border-r border-gray-200 pr-5">
-  <p class="p1">Learn how to automatically sync documentation and configuration files across multiple GitHub repositories using happi-file-sync-gh, a GitHub Action that makes file synchronization effortless.</p>
-  <p>Have you ever maintained multiple GitHub repositories that share common documentation or configuration files? Keeping these files in sync can be a tedious and error-prone task. What if there was a way to automatically update these files across repositories whenever changes are made?</p>
+    <p class="p1">Automatically sync documentation and configuration files across multiple GitHub repositories using happi-file-sync-gh, a GitHub Action that makes keeping files in sync suck less.</p>
+    <p>Have you ever maintained multiple GitHub repositories that share common documentation or configuration files? Keeping these files in sync is a tedious and error-prone task. What if there was a way to automatically update these files across repositories whenever changes are made?</p>
 <p>Well there is probably loads of solutions out there, happy-file-sync-gh is mine.</p>
 <h2>The Problem: Documentation Drift</h2>
-<p>One of the most common challenges in maintaining multiple repositories is keeping shared documentation and configuration files synchronized. Whether it's:</p>
+<p>One of the big challenges in maintaining multiple repositories is keeping shared documentation and configuration files synchronized. Whether it's:</p>
 <ul>
 <li>README files that need to be consistent across related projects</li>
 <li>Shared configuration files that define common settings</li>
 <li>Documentation tools that source content from multiple locations</li>
 <li>License files that need to be kept up to date</li>
 </ul>
-<p>Manual synchronization is time-consuming and often leads to documentation drift, where files become inconsistent over time. It's also prone to developers &quot;forgetting&quot; to push the information to where it needs to be. If we can make the process hands off, that it's forgettable becomes less of a problem.</p>
+<p>Manual synchronization is time-consuming and often leads to documentation drift. I mean, it's not fun, your're being pushed to deliver more tickets and future you isn't here to give you an earful. The tendency to developers &quot;forgetting&quot; to push the information to where it needs to be seems to be a symptom of a busy engineering department that has forgotten about delayed gratification. If we can make the process hands off, that it's &quot;forgettable&quot; becomes less of a problem.</p>
 <h2>The Solution: Automated File Synchronization</h2>
-<p>happi-file-sync-gh solves this problem by automatically creating pull requests to sync files between repositories whenever changes are detected. Here's how it works:</p>
+<p>happi-file-sync-gh automatically creates pull requests to sync files between repositories whenever changes are detected. It's not high-brow, but it works well enough for out use case. Here's the detail:</p>
 <ol>
 <li>You specify which files to monitor and where they should be synced</li>
 <li>When changes are made to these files, the action automatically:
@@ -122,16 +122,24 @@ jobs:
 <h2>Roadmap</h2>
 <p>The project is <s>actively being developed</s> nudged along when my team complain enough. That being said there are several planned improvements that have been identified:</p>
 <ul>
-<li>Clean up error outputs for better debugging</li>
-<li>Improve logging with operation summaries</li>
 <li>Support syncing entire directories</li>
+<li>Improve logging with operation summaries</li>
+<li>Clean up error outputs for better debugging</li>
 <li>Improve error handling and exit codes</li>
 </ul>
 
   </div>
    <div class="article-meta col-start-10 col-end-13 pl-2">
       <span>by <a href="./about/post.simon-loynes">Simon</a> · 7 Aug 2025</span>
-      <span><a href="/posts/tagged/github">github</a>, <a href="/posts/tagged/dev-tools">dev-tools</a></span>
+      <div class="repo-link mt-4">
+      <div class="repo-link__content flex items-center gap-2">
+        <svg class="repo-link__icon w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+    </svg>
+        <a href="https://github.com/simonloynes/happi-file-sync-gh" title="automatically sync documentation and configuration files with happi-file-sync-gh" class="repo-link__link text-blue-600 hover:text-blue-800">happi-file-sync-gh</a>
+      </div>
+    </div>
+      <div class="mt-4"><a href="/posts/tagged/github">github</a>, <a href="/posts/tagged/dev-tools">dev-tools</a></div>
     </div>
 </article>
     </main>
